@@ -1,0 +1,107 @@
+.cart_page {
+    width: 100%;
+    background-color: $superColor;
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+    border-radius: 20px;
+
+    h3 {
+        margin: 10px 30px;
+        color: $blueColor;
+        font-weight: 600;
+        font-size: 30px;
+    }
+
+    .cart_page_container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        .table_container {
+            width: 65%;
+            padding: 10px;
+            background: $primaryColor;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .checkout_container {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+
+            .voucher {
+                background-color: $primaryColor;
+                padding: 10px;
+                margin: 10px;
+                border-radius: 10px;
+
+                p {
+                    color: $blueColor;
+                    font-weight: 600;
+                    font-size: 20px;
+                }
+
+            }
+
+            .checkout {
+                background-color: $primaryColor;
+                padding: 10px;
+                margin: 10px;
+                border-radius: 10px;
+
+                h6 {
+                    color: $blueColor;
+                    font-weight: 600;
+                    font-size: 20px;
+                }
+
+                .current_total {
+                    display: flex;
+                    justify-content: space-between;
+
+                    span {
+                        color: rgb(20, 53, 195);
+                        font-weight: 700;
+                    }
+                }
+
+                form {
+                    .pay_method {
+                        p {
+                            color: black;
+                            font-weight: 400;
+                            font-size: 1em;
+                        }
+
+                        display: flex;
+                        justify-content: space-between;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+    
+    .ant-modal-content {
+        // width: 600px;
+        // height: 500px;
+
+        .ant-modal-confirm-content {
+            display: flex;
+            // height: 360px;
+            // justify-content: center;
+            align-items: center;
+
+            .ant-qrcode {
+                width: 320px !important;
+                height: 320px !important;
+            }
+        }
+    }

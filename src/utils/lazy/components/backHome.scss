@@ -1,0 +1,26 @@
+.page_body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0E0F21;
+
+    .container {
+        // background-image: url("https://img.freepik.com/premium-vector/synth-wave-retro-city-landscape-background-sunset-d-landscape-with-rainbow-comets-futuristic-landsca_518816-3353.jpg?size=626&ext=jpg");
+        // background-repeat: no-repeat;
+        // background-position: 50%;
+        // background-size: cover;
+        background:#0E0F21;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 100%;
+            height: auto;
+            // border-radius: 70%;
+        }
+    }
+}
