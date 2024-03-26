@@ -11,7 +11,7 @@ export default function Navbar({  menuState, setMenuState }) {
           <img src={pictures.logo} onClick={() => {
             window.location.href = "/";
           }} />
-          <a href="http://localhost:5173/"><img className='phuquy' src="https://images.cooltext.com/5681142.png" width="401" height="97" alt="PHUQUY.VN" /></a>
+          <a href={import.meta.env.WEB_URL}><img className='phuquy' src="https://images.cooltext.com/5681142.png" width="401" height="97" alt="PHUQUY.VN" /></a>
         </div>
         <MenuBtn onClickFn={setMenuState} open={menuState} />
       </div>

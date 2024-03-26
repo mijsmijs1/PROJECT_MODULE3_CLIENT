@@ -89,7 +89,7 @@ export default function Header() {
               <img src={pictures.logo} onClick={() => {
                 window.location.href = "/";
               }} />
-              <a href="http://localhost:5173/"><img src="https://images.cooltext.com/5681142.png" width="401" height="97" alt="PHUQUY.VN" /></a>
+              <a href={import.meta.env.WEB_URL}><img src="https://images.cooltext.com/5681142.png" width="401" height="97" alt="PHUQUY.VN" /></a>
             </div>
             <nav>
               {
@@ -101,7 +101,7 @@ export default function Header() {
                         className={`item ${item.codeName && "sup"}`} key={Date.now() * Math.random()}>
                         <ion-icon name={icon.find(currentIcon => currentIcon.title == item.title) ? icon.find(currentIcon => currentIcon.title == item.title).icon : "game-controller-outline"}></ion-icon>
                         <div
-                           style={{ zIndex: 9999 }}
+                          style={{ zIndex: 9999 }}
                           onClick={() => {
                             navigate(`/category/${item.title}/all`)
                           }}>
