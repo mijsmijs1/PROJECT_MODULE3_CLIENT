@@ -10,7 +10,7 @@ export default function Cart() {
     const dispatch = useDispatch();
     const receiptStore = useSelector(store => store.receiptStore)
     useEffect(() => {
-        console.log("receiptStore.receipts", receiptStore.receipts);
+
     }, [receiptStore.receipts])
     const userStore = useSelector(store => store.userStore)
     async function handleDelete(itemId) {
@@ -60,9 +60,9 @@ export default function Cart() {
                     ...zaloData
                 }
             }
-            console.log('receiptStore.cart', receiptStore.cart);
+
             let result = await api.receipt.pay(receiptStore.cart?.id, data)
-            console.log('result', result);
+
             return result.data.data
         } catch (err) {
             return false
@@ -84,7 +84,7 @@ export default function Cart() {
             let zaloPayTimeout = null;
             let zaloPayInterVal = setInterval(async () => {
                 let resultCheck = await api.receipt.zaloCheck(result.data.orderId);
-                console.log(resultCheck);
+            
                 if (resultCheck.data.status) {
                     clearInterval(zaloPayInterVal)
                     clearTimeout(zaloPayTimeout)
@@ -131,8 +131,7 @@ export default function Cart() {
                 }
                 dispatch(receiptAction.setCart(null))
                 dispatch(receiptAction.addReceipt(result))
-                console.log('receiptStore', receiptStore);
-                console.log('result', result);
+
                 window.location.href = '/receipts'
             },
             onCancel: () => { return }

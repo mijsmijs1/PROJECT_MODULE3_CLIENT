@@ -41,7 +41,7 @@ export default function Login({ loadFlag, setLoadFlag }) {
                     password: String(Math.ceil(Date.now() * Math.random()))
                 }
             }
-            console.log('data',data);
+
             let resultApi = await api.authen.loginWithGoogle(data);
             
             localStorage.setItem("token", resultApi.data.token)
@@ -199,7 +199,7 @@ export default function Login({ loadFlag, setLoadFlag }) {
                 onClick={async () => {
                     let result = await loginWithGithub();
                     reauthenticate();
-                    console.log('result', result);
+
                     handleLoginWithSosial(result,"Github")
                 }}
                 type='button'

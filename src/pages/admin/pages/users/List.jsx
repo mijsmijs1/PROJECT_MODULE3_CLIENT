@@ -67,7 +67,7 @@ export default function List() {
         } else {
             users = userStore.list.filter(item => item.role != "master")
         }
-        console.log("da vao effect");
+
     }, [getUser])
     if (userStore.data.role == "master") {
         users = userStore.list

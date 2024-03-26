@@ -11,11 +11,11 @@ export default function Header() {
   const dispatch = useDispatch()
   const userStore = useSelector(store => store.userStore)
   const productStore = useSelector(store => store.productStore)
-  console.log('productStore', productStore);
+
   const categoryStore = useSelector(store => store.categoryStore)
-  console.log('categoryStore', categoryStore);
+
   const brandStore = useSelector(store => store.brandStore)
-  console.log('brandStore', brandStore);
+
   const receiptStore = useSelector(store => store.receiptStore)
   const navigate = useNavigate()
   let icon = [
@@ -118,7 +118,7 @@ export default function Header() {
                                       return (
                                         <div onClick={() => {
                                           navigate(`/category/${item.title}/${supItem.title}`)
-                                          console.log(supItem.title);
+    
                                         }}
                                           key={Date.now() * Math.random()}
                                           className='sup_menu_item'>

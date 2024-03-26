@@ -9,7 +9,7 @@ import { Modal } from 'antd';
 
 export default function DetailShow({ showDetail, setShowDetail, updateData, setUpdateData }) {
   const categoryStore = useSelector(store => store.categoryStore)
-  console.log(updateData);
+
 
   const dispatch = useDispatch();
   const computerType = ['Laptop', 'PC & phụ kiện']
@@ -44,7 +44,7 @@ export default function DetailShow({ showDetail, setShowDetail, updateData, setU
         mass: e.target.mass.value
       })
       let result = await api.product.updateDes(updateData.id, { detail: detail })
-      console.log('resutl', result);
+
       if (result.status == 200) {
         Modal.success({
           title: 'Success!',
@@ -91,7 +91,7 @@ export default function DetailShow({ showDetail, setShowDetail, updateData, setU
         mass: e.target.mass.value
       })
       let result = await api.product.update(updateData.id, { detail: detail })
-      console.log('resutl', result);
+
       if (result.status == 200) {
         Modal.success({
           title: 'Success!',

@@ -12,7 +12,7 @@ import UserEditForm from './components/UserEditForm';
 export default function Recycle() {
     const dispatch = useDispatch()
     const userStore = useSelector(store => store.userStore);
-    console.log('userStore', userStore);
+
     const receiptStore = useSelector(store => store.receiptStore);
     const [showAddress, setShowAddress] = useState(false);
     const [updateData, setupdateData] = useState({});
@@ -36,7 +36,7 @@ export default function Recycle() {
     const handleConfirm = async () => {
         try {
             let result = await api.authen.update(updateData.id, { role: updateData.role, status: true });
-            console.log('result', result);
+
             if (result.status == 200) {
                 dispatch(userAction.update(result.data.data));
                 setGetUser(!getUser)
@@ -71,7 +71,7 @@ export default function Recycle() {
         } else {
             users = userStore.list.filter(item => item.role != "master")
         }
-        console.log("da vao effect");
+
     }, [getUser])
     if (userStore.data.role == "master") {
         users = userStore.list

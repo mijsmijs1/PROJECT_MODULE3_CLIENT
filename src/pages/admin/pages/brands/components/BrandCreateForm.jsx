@@ -16,11 +16,11 @@ export default function BrandCreateForm({ dispatch }) {
         codeName: e.target.codeName.value,
         status: Boolean(e.target.status.value)
       }
-      console.log(newCate);
+
       let result = await api.brand.create({
         ...newCate
       })
-      console.log('result', result);
+
       Modal.success({
         title: "Notication",
         content: "Bạn đã thêm brand thành công!",

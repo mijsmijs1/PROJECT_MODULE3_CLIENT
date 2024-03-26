@@ -18,11 +18,11 @@ export default function UserCreateForm({ dispatch }) {
         role: e.target.role.value,
         status: Boolean(e.target.status.value)
       }
-      console.log(newUser);
+
       let result = await api.authen.create({
         ...newUser
       })
-      console.log('result', result);
+
       Modal.success({
         title: "Notication",
         content: "Bạn đã thêm user thành công!",

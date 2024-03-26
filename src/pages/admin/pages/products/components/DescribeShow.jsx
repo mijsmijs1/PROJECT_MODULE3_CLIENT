@@ -15,9 +15,9 @@ export default function DescribeShow({ showDes, setShowDes, updateData, setUpdat
                 e.target.des.value = "Đang cập nhật"
                 setUpdateData({ ...updateData, des: "Đang cập nhật" })
             }
-            console.log(description);
+
             let result = await api.product.updateDes(updateData.id, { des: description })
-            console.log('result',result);
+
             if (result.status == 200) {
                 Modal.success({
                     title: 'Success!',

@@ -37,7 +37,6 @@ export default function App() {
       api.product.findMany()
         .then(async (res) => {
           dispatch(productAction.setData(res.data.data))
-          console.log("products", res.data.data)
         })
         .catch(err => {
           console.log(err);

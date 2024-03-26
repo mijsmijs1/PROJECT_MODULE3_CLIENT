@@ -20,7 +20,7 @@ export default function Receipt() {
   };
   useEffect(
     () => {
-      console.log('receiptStore.receipts', receiptStore.receipts);
+
     }
     , [receiptStore.receipts])
 
@@ -62,7 +62,7 @@ export default function Receipt() {
                       onClick={() => {
                         setDisplay(true);
                         setCurrentRecreipt(receipt.detail)
-                        console.log('currentRecreipt', currentRecreipt);
+
                       }}
                     >Show more!</button>
                   </td>
@@ -110,7 +110,7 @@ export default function Receipt() {
                           onClick={() => {
                             setDisplay(true);
                             setCurrentRecreipt(receipt.detail)
-                            console.log('currentRecreipt', currentRecreipt);
+
                           }}
                         >Show more!</button>
                       </td>

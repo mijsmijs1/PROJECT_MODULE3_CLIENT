@@ -10,7 +10,7 @@ export default function ProductCreateForm({ dispatch }) {
   const [picturesPreview, setPicturesPreview] = useState([]);
   const categoryStore = useSelector(store => store.categoryStore)
   const brandStore = useSelector(store => store.brandStore)
-  console.log('categoryStore', categoryStore);
+
   async function handleAddProduct(e) {
     e.preventDefault();
     if (!e.target.avatar.files[0]) return
@@ -30,7 +30,7 @@ export default function ProductCreateForm({ dispatch }) {
         pictures.push({
           url
         })
-        console.log('url', url);
+
       }
 
       let result = await api.product.create({

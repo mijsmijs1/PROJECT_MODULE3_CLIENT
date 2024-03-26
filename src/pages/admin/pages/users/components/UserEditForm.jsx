@@ -8,7 +8,7 @@ import { Modal } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 export default function UserEditForm({ showEdit, setShowEdit, updateData }) {
     const dispatch = useDispatch();
-    console.log('updateData', updateData);
+
     const userStore = useSelector(store => store.userStore)
     async function handleEditUser(e) {
         e.preventDefault();
@@ -38,11 +38,11 @@ export default function UserEditForm({ showEdit, setShowEdit, updateData }) {
                 }
             }
 
-            console.log(editUser);
+
             let result = await api.authen.update(updateData.id, {
                 ...editUser
             })
-            console.log('result', result);
+
             Modal.success({
                 title: "Notication",
                 content: "Bạn đã edit user thành công!",

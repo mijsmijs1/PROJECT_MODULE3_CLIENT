@@ -11,12 +11,12 @@ export default function ProductEdit({ showEdit, setShowEdit, updateData, setupda
     const [picturesPreview, setPicturesPreview] = useState([]);
     const categoryStore = useSelector(store => store.categoryStore)
     const brandStore = useSelector(store => store.brandStore)
-    console.log('updateData.product', updateData.product);
+
     const fileInputRef = useRef(null);
     useEffect(() => {
         setPicturesPreview(updateData.product.pictures)
     }, []);
-    console.log('picturesPreview', picturesPreview);
+
     async function handleEditProduct(e) {
         e.preventDefault();
         let avatar = null;
@@ -25,7 +25,7 @@ export default function ProductEdit({ showEdit, setShowEdit, updateData, setupda
         } else {
             avatar = await uploadToFirebase(e.target.avatar.files[0])
         }
-        console.log('avatar', avatar);
+
         try {
             let updatedProduct = {
                 name: e.target.name.value,
@@ -54,7 +54,7 @@ export default function ProductEdit({ showEdit, setShowEdit, updateData, setupda
                 ...updatedProduct,
                 pictures
             })
-            console.log(result);
+
             if (result.status == 200) {
                 Modal.success({
                     title: "Notication",
@@ -131,7 +131,7 @@ export default function ProductEdit({ showEdit, setShowEdit, updateData, setupda
                 <Form.Group controlId="formFile" className="mb-3">
                     <Form.Label>Picture List</Form.Label>
                     <Form.Control onChange={(e) => {
-                        console.log('da vao');
+   
                         let tempArr = [];
                         if (e.target.files.length > 0) {
                             for (let i in e.target.files) {
@@ -149,7 +149,7 @@ export default function ProductEdit({ showEdit, setShowEdit, updateData, setupda
                             return
                         }
                         setPicturesPreview([...tempArr, ...picturesPreview])
-                        console.log('picturesPreview2222', picturesPreview);
+
                     }} type="file" multiple max={10} ref={fileInputRef} />
                 </Form.Group>
                 <div className='pictures'>
