@@ -426,7 +426,7 @@ export default function List() {
                                     let result = await api.receipt.updateReceipt(currentRecreipt.id, { status: "delete" })
                                     if (result.status == 200) {
                                         dispatch(receiptAction.update(result.data.data))
-                                        let newReceipt = updateData.receipts.map(item => {
+                                        let newReceipt = updateData.receipts?.map(item => {
                                             if (item.id == result.data.data.id) {
                                                 return result.data.data
                                             } else {

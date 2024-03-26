@@ -104,7 +104,7 @@ export default function Recycle() {
                 </thead>
                 <tbody>
                     {
-                        users.map((item, index) => {
+                        users?.map((item, index) => {
                             if (!item.status) {
                                 return (
                                     <tr key={randomId()}>
@@ -430,7 +430,7 @@ export default function Recycle() {
                                     let result = await api.receipt.updateReceipt(currentRecreipt.id, { status: "delete" })
                                     if (result.status == 200) {
                                         dispatch(receiptAction.update(result.data.data))
-                                        let newReceipt = updateData.receipts.map(item => {
+                                        let newReceipt = updateData.receipts?.map(item => {
                                             if (item.id == result.data.data.id) {
                                                 return result.data.data
                                             } else {

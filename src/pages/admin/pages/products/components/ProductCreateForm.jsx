@@ -128,7 +128,7 @@ export default function ProductCreateForm({ dispatch }) {
         </Form.Group>
         <div className='pictures'>
           {
-            picturesPreview.map((item, index) => (
+            picturesPreview?.map((item, index) => (
               <div key={randomId()} className='item'>
                 <img src={item.url} />
                 <button type='button' onClick={() => {

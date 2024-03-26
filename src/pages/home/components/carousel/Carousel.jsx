@@ -58,7 +58,7 @@ const Carousel = () => {
         )}
   
         <div className="mydots">
-          {images.map((image, index) => (
+          {images?.map((image, index) => (
             <span
               key={index}
               className={index === currentIndex ? 'active' : ''}

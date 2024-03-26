@@ -94,7 +94,7 @@ export default function Header() {
             <nav>
               {
 
-                categoryStore.data.map(item => {
+                categoryStore.data?.map(item => {
                   if (item.status) {
                     return (
                       <div style={{ zIndex: 100 }}
@@ -112,7 +112,7 @@ export default function Header() {
                           brandStore.data && (
                             <div className='sup_menu'>
                               {
-                                brandStore.data.map(supItem => {
+                                brandStore.data?.map(supItem => {
                                   try {
                                     if (productStore.data.find(currentProduct => currentProduct.categoryId == item.id && currentProduct.brandId == supItem.id) && supItem.status) {
                                       return (
