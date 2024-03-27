@@ -13,6 +13,7 @@ const Carousel = () => {
         <div style={{ width: '700px', height: '600px', overflowY: "scroll" }}>
           <p>Some information about my website.</p>
           <img src={img} alt="Description of image" style={{ maxWidth: '100%', height: 'auto' }} />
+          <p>Account: master Password: 123</p>
           <p>Facebook: facebook.com/phuquy119</p>
           <p>Zalo: 0936549721</p>
           <p>Github Client: https://github.com/mijsmijs1/PROJECT_MODULE3_CLIENT</p>

@@ -6,24 +6,28 @@ import Container from './components/Container'
 export default function Admin() {
     const [menuState, setMenuState] = useState(false);
     const userStore = useSelector(store => store.userStore)
+    const [isDataLoaded, setIsDataLoaded] = useState(false);
     console.log(userStore);
     const acceptRole = ["admin", "master"]
     useEffect(() => {
-        setTimeout(() => {
-            if (!userStore.data) {
-                alert("Permission Denine")
-                window.location.href = "/"
-                return
-            }
+        if (userStore.data) {
+            setIsDataLoaded(true);
+        }
+    }, [userStore.data]);
 
-            if (!acceptRole.find(item => item == userStore.data?.role)) {
-                alert("Permission Denine")
-                window.location.href = "/"
-                return
+    useEffect(() => {
+        if (isDataLoaded) {
+            if (!acceptRole.find(item => item === userStore.data?.role)) {
+                alert("Permission Denied");
+                // window.location.href = "/";
             }
-        }, 1000)
+        }
+    }, [isDataLoaded, userStore.data]);
 
-    }, [userStore.data])
+    if (!isDataLoaded) {
+        // Nếu dữ liệu chưa tải, hiển thị một tiến trình tải hoặc thông báo chờ
+        return <div>Loading...</div>;
+    }
     return (
         <>
             {
