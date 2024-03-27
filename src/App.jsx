@@ -11,24 +11,25 @@ import { brandAction } from '@slices/brand.slice'
 import '../product.json'
 export default function App() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    if (!localStorage.getItem("token")) return
-    try {
-      api.authen.decodeToken(localStorage.getItem("token"))
-        .then(res => {
-          dispatch(userAction.setData(res.data.data))
-        })
-        .catch(err => {
-          console.log(err);
-          localStorage.removeItem("token")
-          dispatch(userAction.setData(null))
-        })
-    } catch (err) {
-      console.log(err);
-      localStorage.removeItem("token")
-      dispatch(userAction.setData(null))
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (!localStorage.getItem("token")) return
+  //   try {
+  //     api.authen.decodeToken(localStorage.getItem("token"))
+  //       .then(res => {
+  //         dispatch(userAction.setData(res.data.data))
+  //         console.log('da vao', res);
+  //       })
+  //       .catch(err => {
+  //         console.log(err);
+  //         localStorage.removeItem("token")
+  //         dispatch(userAction.setData(null))
+  //       })
+  //   } catch (err) {
+  //     console.log(err);
+  //     localStorage.removeItem("token")
+  //     dispatch(userAction.setData(null))
+  //   }
+  // }, [])
 
 
   useEffect(() => {

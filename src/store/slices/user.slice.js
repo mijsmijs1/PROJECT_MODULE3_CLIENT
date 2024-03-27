@@ -1,6 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import api from '@services/apis'
+export const fetchUserData = createAsyncThunk(
+    'users/fetchByIdStatus',
+    async () => {
+        try {
+            const result = await api.authen.decodeToken(localStorage.getItem("token"))
+            return result.data.data
+        } catch (err) {
+            localStorage.removeItem("token")
+            dispatch(userAction.setData(null))
+        }
 
-
+    }
+)
 const userSlice = createSlice({
     name: "user",
     initialState: {
@@ -30,6 +42,13 @@ const userSlice = createSlice({
                 }
             })
         }
+    },
+    extraReducers: (builder) => {
+        // Add reducers for additional action types here, and handle loading state as needed
+        builder.addCase(fetchUserData.fulfilled, (state, action) => {
+            // Add user to the state array
+            state.data = action.payload
+        })
     }
 })
 

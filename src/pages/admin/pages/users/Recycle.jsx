@@ -66,14 +66,14 @@ export default function Recycle() {
         } catch (err) {
             console.log(err);
         }
-        if (userStore.data.role == "master") {
+        if (userStore.data?.role == "master") {
             users = userStore.list
         } else {
             users = userStore.list.filter(item => item.role != "master")
         }
 
     }, [getUser])
-    if (userStore.data.role == "master") {
+    if (userStore.data?.role == "master") {
         users = userStore.list
     } else {
         users = userStore.list.filter(item => item.role != "master")

@@ -6,24 +6,28 @@ import Container from './components/Container'
 export default function Admin() {
     const [menuState, setMenuState] = useState(false);
     const userStore = useSelector(store => store.userStore)
+    console.log(userStore);
     const acceptRole = ["admin", "master"]
     useEffect(() => {
-        if (!userStore.data) {
-            alert("Permission Denine")
-            window.location.href = "/"
-            return
-        }
+        setTimeout(() => {
+            if (!userStore.data) {
+                alert("Permission Denine")
+                window.location.href = "/"
+                return
+            }
 
-        if (!acceptRole.find(item => item == userStore.data.role)) {
-            alert("Permission Denine")
-            window.location.href = "/"
-            return
-        }
+            if (!acceptRole.find(item => item == userStore.data?.role)) {
+                alert("Permission Denine")
+                window.location.href = "/"
+                return
+            }
+        }, 1000)
+
     }, [userStore.data])
     return (
         <>
             {
-                acceptRole.find(item => item == userStore.data.role) && (
+                acceptRole.find(item => item == userStore.data?.role) && (
                     <div style={{ color: 'black' }} className='admin_page'>
                         <Navbar menuState={menuState} setMenuState={setMenuState} userStore={userStore} />
                         <Container menuState={menuState} userStore={userStore} />

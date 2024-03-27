@@ -89,7 +89,7 @@ export default function Header() {
               <img src={pictures.logo} onClick={() => {
                 window.location.href = "/";
               }} />
-              <a href={import.meta.env.WEB_URL}><img src="https://images.cooltext.com/5681142.png" width="401" height="97" alt="PHUQUY.VN" /></a>
+              <a href={import.meta.env.WEB_URL}><img src="https://images.cooltext.com/5681142.png" onClick={() => { window.location.href = "/" }} width="401" height="97" alt="PHUQUY.VN" /></a>
             </div>
             <nav>
               {
@@ -114,7 +114,7 @@ export default function Header() {
                               {
                                 brandStore.data?.map(supItem => {
                                   try {
-                                    if (productStore.data.find(currentProduct => currentProduct.categoryId == item.id && currentProduct.brandId == supItem.id) && supItem.status) {
+                                    if (productStore.data?.find(currentProduct => currentProduct.categoryId == item.id && currentProduct.brandId == supItem.id) && supItem.status) {
                                       return (
                                         <div onClick={() => {
                                           navigate(`/category/${item.title}/${supItem.title}`)
@@ -163,8 +163,8 @@ export default function Header() {
                 <Dropdown>
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     <div className='user_box'>
-                      <span>Hi {isNaN(Number(userStore.data.userName)) ? userStore.data.userName : userStore.data.email.split('@')[0]}!</span>
-                      <img src={userStore.data.avatar} />
+                      <span>Hi {isNaN(Number(userStore.data?.userName)) ? userStore.data?.userName : userStore.data?.email.split('@')[0]}!</span>
+                      <img src={userStore.data?.avatar} />
                     </div>
                   </Dropdown.Toggle>
 

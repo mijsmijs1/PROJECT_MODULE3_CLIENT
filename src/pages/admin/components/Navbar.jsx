@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import pictures from '@/pictures'
 
 import MenuBtn from '@components/menu_btn/MenuBtn.jsx'
-export default function Navbar({  menuState, setMenuState }) {
+export default function Navbar({ menuState, setMenuState }) {
 
   return (
     <nav>
@@ -11,14 +11,14 @@ export default function Navbar({  menuState, setMenuState }) {
           <img src={pictures.logo} onClick={() => {
             window.location.href = "/";
           }} />
-          <a href={import.meta.env.WEB_URL}><img className='phuquy' src="https://images.cooltext.com/5681142.png" width="401" height="97" alt="PHUQUY.VN" /></a>
+          <a href={import.meta.env.WEB_URL}><img className='phuquy' onClick={() => { window.location.href = "/admin" }} src="https://images.cooltext.com/5681142.png" width="401" height="97" alt="PHUQUY.VN" /></a>
         </div>
         <MenuBtn onClickFn={setMenuState} open={menuState} />
       </div>
-      <div className='log-out' onClick={()=>{
+      <div className='log-out' onClick={() => {
         window.location.href = "/";
       }}>
-      <ion-icon name="exit-outline"></ion-icon>
+        <ion-icon name="exit-outline"></ion-icon>
       </div>
     </nav>
   )
